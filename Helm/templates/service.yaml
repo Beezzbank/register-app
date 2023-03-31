@@ -1,0 +1,13 @@
+{{- $svcPort := .Values.service.ports -}}
+{{- $svctargetPort := .Values.service.targetPort -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+spec:
+  selector:
+    app: {{ .Values.selector.app }}
+  ports:
+    - protocol: TCP
+      port: {{ $svcPort }}
+      targetPort: {{ $svctargetPort }}
