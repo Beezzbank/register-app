@@ -7,8 +7,8 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: git checkout
-        run: git clone -b main https://github.com/Beezzbank/register-app.git
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: docker login
         run: docker login -u beezzbank -p ${{ Secrets.DOCKER_PASS }}
 
