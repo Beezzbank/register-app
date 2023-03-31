@@ -13,8 +13,8 @@ jobs:
 
       - name: build and push 
         run: |
+           pwd
 #          cd register-app
-          pwd
 #          docker build -t beezzbank/register-app:1.1 .
 #          docker push beezzbank/register-app:1.1
  
