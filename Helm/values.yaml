@@ -1,13 +1,13 @@
 replicaCount: 1
 
 deployment:
-  name: gradecal-api
-  labels: beezz-app
+  name: register-app
+  labels: register-app
   image: 
     app: beezzbank/register-app:1.1
 
 selector:
-  app: beezz-app
+  app: register-app
 
 
 #
@@ -74,7 +74,7 @@ containerPorts:
 #   targetPort: 80
 #
 service:
-  name: beezz-service
+  name: app-service
   ports: 3000
   targetPort: 3000
 
@@ -99,12 +99,12 @@ ingress:
   ingressClassname: nginx
   name: beezz-ing
   rules:
-    - host: gradecal.beezzlab.com
+    - host: register-app.beezzlab.com
       http:
         paths:
         - pathType: Prefix
           backend:
-            servicename : beezz-service
+            servicename : app-service
           path: /
           
 
