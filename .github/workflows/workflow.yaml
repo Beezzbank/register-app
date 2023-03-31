@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: git checkout
-        run: git clone -b develop https://github.com/Beezzbank/register-app.git
+        run: git clone -b main https://github.com/Beezzbank/register-app.git
       - name: docker login
         run: docker login -u beezzbank -p ${{ Secrets.DOCKER_PASS }}
 
       - name: build and push 
         run: |
-          cd register-app/Docker
+          cd register-app/app
           docker build -t beezzbank/register-app:1.1 .
           docker push beezzbank/register-app:1.1
  
