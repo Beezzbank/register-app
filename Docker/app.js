@@ -8,7 +8,7 @@ var express = require("express"),
 const User = require("./model/User");
 var app = express();
   
-mongoose.connect('mongodb+srv://beezz3011:WtsrKlZJ0xKdnLY3@cluster0.bqmk5jl.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://${{ Secrets.MONGO_USR }}:${{ Secrets.MONGO_PASS }}@cluster0.bqmk5jl.mongodb.net/?retryWrites=true&w=majority');
   
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
