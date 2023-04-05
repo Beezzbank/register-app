@@ -36,8 +36,8 @@ configMaps:
 secrets:
   name: mongodb-secret
   data:
-    username: dXNlcm5hbWU=
-    password: cGFzc3dvcmQ=
+    username: YmVlenozMDExCg==
+    password: V3RzcktsWkoweEtkbkxZMwo=
 
 
 #
