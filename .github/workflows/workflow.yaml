@@ -26,4 +26,5 @@ jobs:
       - name: create deploy
         run: |
           pwd
+          ls -la
  
