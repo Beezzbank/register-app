@@ -20,6 +20,6 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: pwd
-        run: pwd
+      - name: helm-upgrade
+        run: helm upgrade -i register-helm -f Helm/values.yaml Helm
  
