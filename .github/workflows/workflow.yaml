@@ -2,8 +2,18 @@ name: example-flow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'input version'
+        required: true
 jobs:
-  check-bats-version:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Tag on Workflow Dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "${{ github.event.inputs.version }}"
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,6 +24,19 @@ jobs:
       - name: build and push 
         run: |
           cd Docker
-          docker build -t beezzbank/register-app:1.1 .
-          docker push beezzbank/register-app:1.1
+          docker build -t beezzbank/register-app:${{ github.event.inputs.version }} .
+          docker push beezzbank/register-app:${{ github.event.inputs.version }}
+
+  Deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Minikube start
+        run: |
+          minikube start
+      - name: create deploy
+        run: |
+          pwd
+          cd ..
+          ls -la
  
