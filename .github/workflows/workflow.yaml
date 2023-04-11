@@ -20,6 +20,9 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
+      - name: Minikube start
+        run: |
+          minikube start
       - name: helm-upgrade
         run: helm upgrade -i register-helm -f Helm/values.yaml Helm
  
