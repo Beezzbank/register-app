@@ -25,6 +25,5 @@ jobs:
           minikube start
       - name: create deploy
         run: |
-          cd Helm/templates
-          kubectl apply -f beezz-deploy
+          pwd
  
