@@ -14,6 +14,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: echo "${{ github.event.inputs.version }}"
   build:
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,11 +33,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Minikube start
-        run: |
+        run:
           minikube start
       - name: create deploy
-        run: |
-          pwd
-          cd ..
-          ls -la
+        run:
+          kubectl get node
+           
  
