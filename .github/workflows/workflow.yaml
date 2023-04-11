@@ -23,6 +23,8 @@ jobs:
       - name: Minikube start
         run: |
           minikube start
-      - name: helm-upgrade
-        run: helm upgrade -i register-helm -f Helm/values.yaml Helm
+      - name: create deploy
+        run: |
+          cd Helm/templates
+          kubectl apply -f beezz-deploy
  
