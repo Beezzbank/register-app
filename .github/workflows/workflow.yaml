@@ -36,7 +36,8 @@ jobs:
         run:
           minikube start
       - name: create deploy
-        run: 
+        run: |
+          kubectl create namespace beezz-ns
           helm upgrade -i register-helm -f Helm/values.yaml Helm
            
  
