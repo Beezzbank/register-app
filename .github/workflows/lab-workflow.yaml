@@ -10,8 +10,8 @@ jobs:
       - name: check github environment
         run: hostname
 
-  deploy:
-    runs-on: self-hosted
-    steps:
-      - name: check github environment
-        run: hostname
+  # deploy:
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: check github environment
+  #       run: hostname
