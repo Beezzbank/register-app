@@ -3,15 +3,20 @@ on:
   push:
     branches:
       - main
+env:
+  WORDING: "beezz"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: check github environment
         run: hostname
+      
+      - name: build-app
+        run: echo "build for ${{ env.WORDING}}"
 
-  # deploy:
-  #   runs-on: self-hosted
-  #   steps:
-  #     - name: check github environment
-  #       run: hostname
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: check github environment
+        run: hostname
