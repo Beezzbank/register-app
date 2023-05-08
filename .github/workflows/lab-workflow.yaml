@@ -35,8 +35,7 @@ jobs:
 
   deploy: 
     runs-on: self-hosted
-    permissions:
-      contents: write
+    permissions: write
     needs: build
     if: ${{ always() }}
     steps:
