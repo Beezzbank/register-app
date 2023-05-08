@@ -36,7 +36,8 @@ jobs:
   deploy: 
     runs-on: self-hosted
     permissions:
-      issues: read
+      id-token: write
+      contents: write
     needs: build
     if: ${{ always() }}
     steps:
