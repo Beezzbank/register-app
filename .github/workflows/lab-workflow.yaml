@@ -34,7 +34,7 @@ jobs:
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS"
 
   deploy: 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     if: ${{ always() }}
     steps:
