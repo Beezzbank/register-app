@@ -34,8 +34,9 @@ jobs:
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS"
 
   deploy: 
-    runs-on: self-hosted
-    permissions: write-all
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
     needs: build
     if: ${{ always() }}
     steps:
