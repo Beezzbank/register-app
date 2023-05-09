@@ -44,7 +44,7 @@ jobs:
         uses: trstringer/manual-approval@v1
         id: check-approval
         with:
-#          secret: ${{ github.TOKEN }}
+          secret: ${{ secrets.TOKEN }}
           approvers: "Beezzbank, samah603"
           minimum-approvals: 1
 
