@@ -42,7 +42,7 @@ jobs:
         uses: trstringer/manual-approval@v1
         id: check-approval
         with:
-          secret: ${{ secrets.TOKEN }}
+          secret: ${{ github.TOKEN }}
           approvers: "Beezzbank, samah603"
           minimum-approvals: 1
           issue-title: "Deploy workflow"
