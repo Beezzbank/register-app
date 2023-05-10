@@ -41,11 +41,11 @@ jobs:
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
         id: check-approval
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         with:
+          secret: ${{ secrets.TOKEN }}
           approvers: "Beezzbank, samah603"
           minimum-approvals: 1
+          issue-title: "Deploy workflow"
 
       - name: check github environment
         run: hostname
