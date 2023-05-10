@@ -41,8 +41,9 @@ jobs:
       - name: wait for Approve    
         uses: trstringer/manual-approval@v1
         id: check-approval
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
           approvers: "Beezzbank, samah603"
           minimum-approvals: 1
 
