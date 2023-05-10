@@ -35,8 +35,6 @@ jobs:
 
   deploy: 
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
     needs: build
     if: ${{ always() }}
     steps:
@@ -44,7 +42,7 @@ jobs:
         uses: trstringer/manual-approval@v1
         id: check-approval
         with:
-          secret: ${{ secrets.TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           approvers: "Beezzbank, samah603"
           minimum-approvals: 1
 
