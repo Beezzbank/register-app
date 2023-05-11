@@ -32,7 +32,7 @@ jobs:
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS"
 
   deploy: 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     if: ${{ always() }}
     steps:
@@ -51,4 +51,5 @@ jobs:
       - name: deploy app
         run: | 
           echo "deploying app version ${{ needs.build.outputs.image-version}} Developer by ${{ needs.build.outputs.developer }}"
-          helm upgrade -i --create-namespace beezz-ns register-helm -f Helm/values.yaml Helm
+          kubectl create namespace beezz-ns
+          helm upgrade -i register-helm -f Helm/values.yaml Helm
