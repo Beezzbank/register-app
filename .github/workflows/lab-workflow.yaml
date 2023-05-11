@@ -41,12 +41,13 @@ jobs:
         id: check-approval
         with:
           secret: ${{ github.TOKEN }}
-          approvers: "Beezzbank, samah603"
+          approvers: "Beezzbank"
           minimum-approvals: 1
           issue-title: "Deploy workflow"
 
-      - name: check github environment
-        run: hostname
+      - name: Minikube start
+        run:
+          minikube start
         
       - name: deploy app
         run: | 
