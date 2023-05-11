@@ -45,8 +45,9 @@ jobs:
           minimum-approvals: 1
           issue-title: "Deploy workflow"
 
-      - name: check github environment
-        run: hostname
+      - name: Minikube start
+        run:
+          minikube start
         
       - name: deploy app
         run: | 
