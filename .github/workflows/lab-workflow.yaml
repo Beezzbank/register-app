@@ -7,9 +7,8 @@ on:
         required: true
         default: '1.0.0'
         type: string
-  push:
-    branches:
-      - main
+        required: true
+
 env:
   WORDING: "Piyapan"
 
@@ -43,7 +42,7 @@ jobs:
         id: check-approval
         with:
           secret: ${{ github.TOKEN }}
-          approvers: "Beezzbank"
+          approvers: "Beezzbank, samah603"
           minimum-approvals: 1
           issue-title: "Deploy workflow"
 
@@ -53,4 +52,4 @@ jobs:
       - name: deploy app
         run: | 
           echo "deploying app version ${{ needs.build.outputs.image-version}} Developer by ${{ needs.build.outputs.developer }}"
-          helm upgrade -i register-helm -f Helm/values.yaml Helm
+          helm upgrade -i --create-namespace beezz-ns register-helm -f Helm/values.yaml Helm
