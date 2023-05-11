@@ -56,5 +56,4 @@ jobs:
       - name: deploy app
         run: | 
           echo "deploying app version ${{ needs.build.outputs.image-version}} Developer by ${{ needs.build.outputs.developer }}"
-          kubectl create namespace beezz-ns
           helm upgrade -i register-helm -f Helm/values.yaml Helm
