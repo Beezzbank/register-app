@@ -56,4 +56,5 @@ jobs:
       - name: deploy app
         run: | 
           echo "deploying app version ${{ needs.build.outputs.image-version}} Developer by ${{ needs.build.outputs.developer }}"
-          helm upgrade -i register-helm -f Helm/values.yaml Helm
+          pwd
+#          helm upgrade -i register-helm -f Helm/values.yaml Helm
