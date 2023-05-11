@@ -13,7 +13,7 @@ env:
 
 jobs:
   build: 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: ${{ github.event_name != 'workflow_dispatch' }}
     outputs:
       image-version: ${{ steps.create-variable.outputs.image-version }}
@@ -30,6 +30,10 @@ jobs:
           echo "::set-output name=image-version::prod-1.0.0"
       - name: build application
         run: echo "build for ${{ env.WORDING }} by $BUILD_ARGS"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
 
   deploy: 
     runs-on: self-hosted
