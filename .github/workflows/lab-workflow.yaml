@@ -33,7 +33,14 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+      - name: docker login
+        run: docker login -u beezzbank -p ${{ Secrets.DOCKER_PASS }}
 
+      - name: build and push 
+        run: |
+          cd Docker
+          docker build -t beezzbank/register-app:${{ github.event.inputs.version }} .
+          docker push beezzbank/register-app:${{ github.event.inputs.version }}
 
   deploy: 
     runs-on: self-hosted
