@@ -40,9 +40,9 @@ jobs:
           secret: ${{ github.TOKEN }}
           approvers: "Beezzbank"
           minimum-approvals: 1
-      - name: Minikube start
-        run:
-          minikube start
+#      - name: Minikube start
+#        run:
+#          minikube start
       - name: create deploy
         run: |
           kubectl create namespace beezz-ns
