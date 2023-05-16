@@ -42,7 +42,8 @@ jobs:
           secret: ${{ github.TOKEN }}
           approvers: "Beezzbank"
           minimum-approvals: 1
-      - name: Start minikube
+      - name: start minikube
+        id: minikube
         uses: medyagh/setup-minikube@latest
       - name: create deploy
         run: |
