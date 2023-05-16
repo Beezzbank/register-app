@@ -47,6 +47,6 @@ jobs:
 #          minikube start
       - name: create deploy
         run: |
-          helm upgrade install --create-namespace ${{ env.NAMESPACE}} register-helm -f Helm/values.yaml Helm
+          helm upgrade install --create-namespace ${{ env.NAMESPACE }} register-helm -f Helm/values.yaml Helm
            
  
