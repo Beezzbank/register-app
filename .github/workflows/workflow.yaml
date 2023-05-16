@@ -43,8 +43,8 @@ jobs:
           approvers: "Beezzbank"
           minimum-approvals: 1
       - name: start minikube
-        id: minikube
-        uses: medyagh/setup-minikube@latest
+        run:
+          minikube start
       - name: create deploy
         run: |
           helm upgrade --install --create-namespace --namespace ${{ env.NAMESPACE }} register-helm -f Helm/values.yaml Helm
