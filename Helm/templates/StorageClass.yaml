@@ -3,5 +3,5 @@ kind: StorageClass
 metadata:
   name: mongodb-storageclass
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: Immediate
+volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
