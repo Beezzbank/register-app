@@ -7,6 +7,8 @@ on:
        description: 'input version'
        default: '1.0.0'
        required: true
+env:
+  NAMESPACE: beezz-ns
 jobs:
   prepare:
     runs-on: self-hosted
@@ -45,6 +47,6 @@ jobs:
 #          minikube start
       - name: create deploy
         run: |
-          helm upgrade -i register-helm -f Helm/values.yaml Helm
+          helm upgrade install --create-namespace --namespace ${{ env.NAMESPACE}} register-helm -f Helm/values.yaml Helm
            
  
