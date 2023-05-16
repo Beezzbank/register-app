@@ -6,6 +6,6 @@ resources:
   - PersistentVolumeClaim.yaml
   - PersistentVolume.yaml
   - Secret.yaml
-  - Service.yaml
+  - mongo-svc.yaml
   - StatefulSet.yaml
   - StorageClass.yaml
