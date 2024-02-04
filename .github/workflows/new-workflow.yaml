@@ -47,6 +47,6 @@ jobs:
           minikube start
       - name: create deploy
         run: |
-          pwd
+          kubectl create ns ${{ env.NAMESPACE }}
+          kubectl apply -f ./Kube/beezz-deploy.yaml -n ${{ env.NAMESPACE }}
            
- 
