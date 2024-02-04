@@ -5,6 +5,7 @@ WORKDIR /register-app/
 COPY . /register-app/
 
 RUN npm install
+RUN apt install curl
 
 EXPOSE 3000
 
