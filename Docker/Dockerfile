@@ -2,11 +2,9 @@ FROM node:18.12.1-alpine
 
 WORKDIR /register-app/
 
-COPY . /register-app/
+COPY . /register-app/Docker
 
 RUN npm install
-
-RUN cd Docker
 
 EXPOSE 3000
 
