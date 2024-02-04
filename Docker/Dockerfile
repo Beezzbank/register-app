@@ -4,11 +4,7 @@ WORKDIR /register-app/
 
 COPY . /register-app/
 
-
-RUN apk update \ 
-&& apk install -y curl \
-&& npm install
-
+RUN npm install
 
 EXPOSE 3000
 
