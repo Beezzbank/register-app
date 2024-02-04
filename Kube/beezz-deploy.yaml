@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: beezz-ns
   name: register-app
   labels:
     app: register-app

@@ -49,6 +49,5 @@ jobs:
 
       - name: create deploy
         run: |
-          kubectl create ns ${{ env.NAMESPACE }}
-          kubectl apply -f ./Kube/beezz-deploy.yaml -n ${{ env.NAMESPACE }}
+          kubectl apply -f ./Kube/beezz-deploy.yaml
            
