@@ -10,14 +10,14 @@ on:
 env:
   NAMESPACE: beezz-ns
 jobs:
-  prepare:
+  tag:
     runs-on: self-hosted
     steps:
       - name: Set Tag on Workflow Dispatch
         if: github.event_name == 'workflow_dispatch'
         run: echo "${{ github.event.inputs.version }}"
   build:
-    needs: prepare
+    needs: tag
     runs-on: self-hosted
     steps:
       - name: Checkout
@@ -46,6 +46,6 @@ jobs:
         uses: medyagh/setup-minikube@latest
       - name: create deploy
         run: |
-          helm upgrade --install --create-namespace --namespace ${{ env.NAMESPACE }} register-helm -f Helm/values.yaml Helm
+          pwd
            
  
