@@ -1,6 +1,10 @@
 name: new-deploy
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: 
+on:
+  push:
+    branches: [ lab001 ]
+  pull_request:
+    branches: [ lab001 ]
   workflow_dispatch:
    inputs:
      version:
