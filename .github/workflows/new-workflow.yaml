@@ -42,9 +42,11 @@ jobs:
           secret: ${{ github.TOKEN }}
           approvers: "Beezzbank, piyapm49"
           minimum-approvals: 1
+  
       - name: Minikube start
         run:
           minikube start
+
       - name: create deploy
         run: |
           kubectl create ns ${{ env.NAMESPACE }}
