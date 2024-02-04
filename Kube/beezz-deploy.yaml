@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app-test
-        image: beezzbank/register-app:1.4
+        image: beezzbank/register-app:1.9
         ports:
         - containerPort: 3000
