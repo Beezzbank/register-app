@@ -40,7 +40,7 @@ jobs:
         id: check-approval
         with:
           secret: ${{ github.TOKEN }}
-          approvers: "Beezzbank"
+          approvers: "Beezzbank, piyapm49"
           minimum-approvals: 1
       - name: Start minikube
         uses: medyagh/setup-minikube@latest
