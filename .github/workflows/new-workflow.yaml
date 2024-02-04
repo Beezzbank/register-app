@@ -49,5 +49,6 @@ jobs:
 
       - name: create deploy
         run: |
+          kubectl apply -f ./Kube/beezz-ing.yaml
           kubectl apply -f ./Kube/beezz-svc.yaml
           kubectl apply -f ./Kube/beezz-deploy.yaml
