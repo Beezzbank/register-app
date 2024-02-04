@@ -5,8 +5,8 @@ WORKDIR /register-app/
 COPY . /register-app/
 
 
-RUN apt-get update \ 
-&& apt-get install -y curl \
+RUN apk update \ 
+&& apk install -y curl \
 && npm install
 
 
