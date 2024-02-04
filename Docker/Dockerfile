@@ -6,6 +6,7 @@ COPY . /register-app/
 
 RUN npm install
 
+RUN cd Docker
 
 EXPOSE 3000
 
