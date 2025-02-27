@@ -34,7 +34,13 @@ jobs:
   Deploy:
     needs: build
     runs-on: self-hosted
+    environment:
+      name: dev
     steps:
+      - name: Call Share Action from another repository
+        uses: corp-ais/cbvs-utils/.github/actions@v1 
+        with:
+          HOST_IP: ${{ vars.HOST_IP }}
       - name: Minikube start
         run:
           minikube start
