@@ -50,3 +50,14 @@ jobs:
           kubectl apply -f ./Kube/beezz-ing.yaml
           kubectl apply -f ./Kube/beezz-svc.yaml
           kubectl apply -f ./Kube/beezz-deploy.yaml
+
+      - name: Report job status
+        if: always() 
+        uses: Beezzbank/action-lab/.github/actions@ms-team-notify
+        with:
+          HOST_NAME: ${{ secrets.HOST_NAME }}
+          JOB_NAME: ${{ github.event.client_payload.inputs.SERVICE_NAME }}
+          JOB_NUMBER: ${{ github.run_id }}
+          ENV: ${{ github.event.client_payload.inputs.ENVIRONMENT }}
+          MESSAGE: deploy
+          STATUS: ${{ job.status }}
